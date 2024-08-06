@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node --max_old_space_size=8192 && NODE_ENV=development node start.js",
-    "build": "npm install --force && ng build"
+    "build": "npm install --force && npm run build"
   },
   "private": true,
    "dependencies": {
