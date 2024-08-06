@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=8192 && NODE_ENV=development && node start.js",
-    "build": "npm install --force && npm run build && ng test --watch=false"
+    "start": "node --max_old_space_size=8192 && NODE_ENV=development node start.js",
+    "build": "npm install --force && ng build && ng test --watch=false"
   },
   "private": true,
-   "dependencies": {
+  "dependencies": {
     "@angular/animations": "^18.1.0",
     "@angular/cdk": "^18.1.2",
     "@angular/common": "^18.1.0",
@@ -18,19 +18,17 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
-     "@angular-devkit/build-angular": "^18.1.1",
-     "@angular/cli": "^18.1.1",
-      "@angular/compiler-cli": "^18.1.0",
     "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    
     "typescript": "~5.5.2"
   },
   "devDependencies": {
-
+    "@angular-devkit/build-angular": "^18.1.1",
+    "@angular/cli": "^18.1.1",
+    "@angular/compiler-cli": "^18.1.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0"
   }
 }
