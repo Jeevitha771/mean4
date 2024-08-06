@@ -1,9 +1,7 @@
 {
   "name": "your-project-name",
   "version": "1.0.0",
-  "engines": {
-    "node": ">=18 <19"
-  },
+  
   "scripts": {
     "dev": "cd server && npm start & cd geeks && npm start",
     "prebuild": "cd geeks && npm run build",
