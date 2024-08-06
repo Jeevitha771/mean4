@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=512 && ng serve --port 4200",
+    "start": "node --max_old_space_size=512 && ng serve --port 4201",
     "build": "npm install --force && ng build --configuration development"
   },
   "private": true,
