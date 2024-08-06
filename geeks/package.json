@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=8192 && NODE_ENV=development node start.js",
+    "start": "node --max_old_space_size=8192 && NODE_ENV=development && node start.js",
     "build": "npm install --force && npm run build && ng test --watch=false"
   },
   "private": true,
