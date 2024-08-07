@@ -4,8 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production && ng test --watch=false",
-    "prebuild": "node loadEnv.js && npm run build"
+    "build": "npm install --force && ng build --configuration production && ng test --watch=false"
   },
   "private": true,
   "dependencies": {
