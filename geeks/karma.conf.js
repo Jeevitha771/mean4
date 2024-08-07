@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+require('dotenv').config();
 
 module.exports = function (config) {
   config.set({
@@ -29,19 +29,12 @@ module.exports = function (config) {
       reporters: [{ type: "html" }, { type: "text-summary" }],
     },
     reporters: ["progress", "kjhtml"],
-    port: 9876,
+    port: process.env.PORT || 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ["ChromiumHeadless"],
-    customLaunchers: {
-      ChromiumHeadless: {
-        base: 'ChromeHeadless',
-        executablePath: puppeteer.executablePath(), // Use Puppeteer's Chromium
-        flags: ['--no-sandbox']
-      }
-    },
-    singleRun: false,
+    browsers: ["ChromeHeadless"],
+    singleRun: true,
     restartOnFileChange: true,
   });
 };
