@@ -32,34 +32,33 @@ export class LibraryComponent implements OnInit {
   }
 
   loadBooks(): void {
-    this.libService.getAllLibs().subscribe(
-      (data: LibModel[]) => {
+    this.libService.getAllLibs().subscribe({
+      next: (data: LibModel[]) => {
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
-      (error) => {
+      error: (error) => {
         console.error('Error fetching books', error);
-      }
-    );
+      },
+    });
   }
 
   editBook(book: LibModel): void {
-    // Navigate to the AddBooksComponent with the book data
     this.router.navigate(['/addBooks'], { state: { book } });
   }
 
   deleteBook(id: string): void {
     if (confirm('Are you sure you want to delete this book?')) {
-      this.libService.deleteLib(id).subscribe(
-        () => {
+      this.libService.deleteLib(id).subscribe({
+        next: () => {
           console.log('Book deleted successfully');
-          this.loadBooks(); // Reload books after deletion
+          this.loadBooks();
         },
-        (error) => {
+        error: (error) => {
           console.error('Error deleting book', error);
-        }
-      );
+        },
+      });
     }
   }
 }
