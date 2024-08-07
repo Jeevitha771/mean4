@@ -1,11 +1,13 @@
 {
   "name": "geeks",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production && ng test --watch=false"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "npm install --force && ng build --configuration production",
+  "pretest": "node pretest.js",
+  "test": "npm run pretest && ng test --watch=false"
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
