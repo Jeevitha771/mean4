@@ -27,7 +27,6 @@ export class AddBooksComponent implements OnInit {
       Comment: ['', Validators.required],
     });
 
-    // Check if navigation state has a book to edit
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as { book: LibModel };
     if (state && state.book) {
@@ -43,31 +42,29 @@ export class AddBooksComponent implements OnInit {
       const bookData: LibModel = this.libraryForm.value;
 
       if (this.editingBook) {
-        // Update existing book
         this.libService
           .updateLib(this.editingBook.BookName, bookData)
-          .subscribe(
-            (response) => {
+          .subscribe({
+            next: (response) => {
               console.log('Book updated successfully', response);
               this.submitted = true;
               this.libraryForm.reset();
             },
-            (error) => {
+            error: (error) => {
               console.error('Error updating book', error);
-            }
-          );
+            },
+          });
       } else {
-        // Add new book
-        this.libService.addLib(bookData).subscribe(
-          (response) => {
+        this.libService.addLib(bookData).subscribe({
+          next: (response) => {
             console.log('Book added successfully', response);
             this.submitted = true;
             this.libraryForm.reset();
           },
-          (error) => {
+          error: (error) => {
             console.error('Error adding book', error);
-          }
-        );
+          },
+        });
       }
     } else {
       console.error('Form is invalid');
